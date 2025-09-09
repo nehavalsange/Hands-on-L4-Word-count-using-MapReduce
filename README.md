@@ -1,12 +1,30 @@
+## Name: Neha Valsange
+## Id: 801393828
 
-# WordCount-Using-MapReduce-Hadoop
+## Project Overview
 
-This repository is designed to test MapReduce jobs using a simple word count dataset. In this project we provide a input file and then we create a maaper and reducer logic to count the occurence of each word in the given input. There are sample input and Expected output for the sample input.
+This project is part of Cloud Computing for Data Analysis.
+The goal is to implement a Word Count program using Hadoop MapReduce in Java and Maven, then deploy and execute it using Docker.
+
+The program processes a text file and counts the occurrences of each word (with length ≥ 3), outputting the results in descending order of frequency.
 
 ## Approach and implementation
-1. Mapper Logic: We use StringTokenizer to create tokens from the input file and loop it using while loop to map all the words in the input file with key value pairs. In this mapper, it will not count characters that are smaller than 3.
+1. Mapper
 
-2. Reducer Logic: Using the output of Mapper logic we increase a variable sum value as we encounter same words and retun them. this way we will get a list of words and the number of times it occured in the input file as output.
+- Reads each line of text.
+- Splits the line into words using whitespace and punctuation delimiters.
+- Filters out words with length less than 3.
+- Emits (word, 1) as the key-value pair.
+
+2. Reducer
+
+- Receives each unique word along with its list of occurrences.
+- Sums the counts for each word.
+- Outputs (word, total_count).
+
+3. Sorting
+
+The results are sorted in descending order of frequency using Hadoop’s output formatting.
 
 ## Setup and Execution
 
@@ -105,22 +123,74 @@ To copy the output from HDFS to your local machine:
 3. Commit and push to your repo so that we can able to see your output
 
 
-## Sample Input: 
+## My Input: 
  ```bash
-   Hello world
-   Hello Hadoop
-   Hadoop is powerful
-   Hadoop is used for big data
+   I built a two-container environment with Docker Compose: one to host
+PostgreSQL with seeded data and the other for a Python app that queries and
+aggregates it. I was taught how to use Compose for service orchestration and
+health checking, as well as forwarding environment variables between containers.
+I also got some experience in debugging build contexts and verifying outputs with
+mounted volumes. This taught me how containerization makes projects portable
+and reproducible.
    ```
 
-## Expected output: 
+## Obtained output: 
  ```bash
-Hadoop 3
-Hello 2
-used 1
-for 1
-big 1
-data 1
-powerful 1
-world 1
+and     5
+with    3
+for     2
+taught  2
+how     2
+environment     2
+app     1
+outputs 1
+health  1
+makes   1
+This    1
+well    1
+debugging       1
+Compose 1
+between 1
+data    1
+host    1
+mounted 1
+PostgreSQL      1
+checking,       1
+forwarding      1
+other   1
+queries 1
+containers.     1
+service 1
+dataset 1
+some    1
+containerization        1
+Docker  1
+two-container   1
+it.     1
+aggregates      1
+projects        1
+one     1
+variables       1
+was     1
+built   1
+the     1
+contexts        1
+input   1
+verifying       1
+build   1
+experience      1
+use     1
+volumes.        1
+own     1
+portable        1
+got     1
+Compose:        1
+reproducible.   1
+that    1
+Create  1
+your    1
+also    1
+seeded  1
+Python  1
+orchestration   1
    ```
