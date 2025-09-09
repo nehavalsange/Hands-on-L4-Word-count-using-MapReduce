@@ -1,1 +1,8 @@
 # Create your own input dataset
+I built a two-container environment with Docker Compose: one to host
+PostgreSQL with seeded data and the other for a Python app that queries and
+aggregates it. I was taught how to use Compose for service orchestration and
+health checking, as well as forwarding environment variables between containers.
+I also got some experience in debugging build contexts and verifying outputs with
+mounted volumes. This taught me how containerization makes projects portable
+and reproducible.
